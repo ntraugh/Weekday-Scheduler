@@ -21,6 +21,15 @@ textarea {
   border-bottom: 10px solid black;
 }
 
+#currentDay {
+  padding-top: 10px;
+
+}
+
+.lead {
+  padding-top: 10px;
+}
+
 .description {
   white-space: pre-wrap;
 }
