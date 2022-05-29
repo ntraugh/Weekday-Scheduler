@@ -1,7 +1,6 @@
 var date = $("#currentDay")
 var hour = parseInt(moment().format("H"))
 var tableRow = $(".row")
-
 // function to get the date, passing in the days and months for our values
 function getDate(){
     var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
@@ -19,21 +18,18 @@ function getDate(){
 Array.from(tableRow).forEach(row => {
     var rowString = row.id, rowHour;
     if (rowString){
-        rowHour = parseInt(rowString);
+        rowHour = parseInt(rowString); // turning our row id into an integer
     }
     if (rowHour){
         if(hour === rowHour){
             newColor(row, "#880000")
         }
-         else if((hour < rowHour) && (hour > rowHour - 6)){
+         else if((hour < rowHour)){
             newColor(row, "#008800");
-        } else if((hour > rowHour) && (hour < rowHour + 6)){
+        } else if((hour > rowHour)){
             newColor(row, "darkgrey");
         } 
     }           
-
-        
-    
 });
 
 // creating the function that takes in an element and a color and changes the row based on the time of day
@@ -42,6 +38,8 @@ function newColor(element, color){
 }
 
 date.append(getDate());
+
+document.querySelector("#row")
 
 
 
