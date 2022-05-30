@@ -26,6 +26,10 @@ textarea {
 
 }
 
+.content {
+  color:white
+}
+
 .lead {
   padding-top: 10px;
 }
