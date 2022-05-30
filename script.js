@@ -47,19 +47,44 @@ Array.from(tableRow).forEach(row => {
 
 // function for storing our values into local storage
 function SaveInfo() {
-    localStorage.setItem("9AM", area1.val()) // gives the 9AM slot a key and value pair, but nothing else
-    localStorage.setItem("10AM", area2.val())
-    localStorage.setItem("11AM", area3.val())
-    localStorage.setItem("12PM", area4.val())
-    localStorage.setItem("1PM", area5.val())
-    localStorage.setItem("2PM", area6.val())
-    localStorage.setItem("3PM", area7.val())
-    localStorage.setItem("4PM", area8.val())
-    localStorage.setItem("5PM", area9.val())
+    localStorage.setItem("9", area1.val()) // gives the 9AM slot a key and value pair, but nothing else
+    localStorage.setItem("10", area2.val())
+    localStorage.setItem("11", area3.val())
+    localStorage.setItem("12", area4.val())
+    localStorage.setItem("1", area5.val())
+    localStorage.setItem("2", area6.val())
+    localStorage.setItem("3", area7.val())
+    localStorage.setItem("4", area8.val())
+    localStorage.setItem("5", area9.val())
 };
 
+function displayInfo(){
+    var refreshArea1 = localStorage.getItem("9")
+    var refreshArea2 = localStorage.getItem("10")
+    var refreshArea3 = localStorage.getItem("11")
+    var refreshArea4 = localStorage.getItem("12")
+    var refreshArea5 = localStorage.getItem("1")
+    var refreshArea6 = localStorage.getItem("2")
+    var refreshArea7 = localStorage.getItem("3")
+    var refreshArea8 = localStorage.getItem("4")
+    // var refreshArea9 = localStorage.getItem("5")
+    area1.text(refreshArea1)
+    area2.text(refreshArea2)
+    area3.text(refreshArea3)
+    area4.text(refreshArea4)
+    area5.text(refreshArea5)
+    area6.text(refreshArea6)
+    area7.text(refreshArea7)
+    area8.text(refreshArea8)
+    // area9.text(refreshArea9)
+}
+
+
+
+
+
 // creating a for loop to add an event listener to every save button
-for (var i = 0; i < inputText.length; i++) {
+for (var i = 0; i <= inputText.length; i++) {
     saveButton[i].addEventListener("click", SaveInfo)
 }
 
@@ -70,8 +95,7 @@ function newColor(element, color) {
 }
 
 date.append(getDate());
-
-
+displayInfo();
 
 
 
