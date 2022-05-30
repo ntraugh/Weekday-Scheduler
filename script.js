@@ -84,7 +84,7 @@ function displayInfo(){
 
 
 // creating a for loop to add an event listener to every save button
-for (var i = 0; i <= inputText.length; i++) {
+for (var i = 0; i < inputText.length; i++) {
     saveButton[i].addEventListener("click", SaveInfo)
 }
 
