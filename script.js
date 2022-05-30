@@ -11,7 +11,7 @@ var area5 = $("#5")
 var area6 = $("#6")
 var area7 = $("#7")
 var area8 = $("#8")
-var area9 = $("#9")
+var area9 = $("#last")
 
 
 
@@ -47,7 +47,7 @@ Array.from(tableRow).forEach(row => {
 
 // function for storing our values into local storage
 function SaveInfo() {
-    localStorage.setItem("9", area1.val()) // gives the 9AM slot a key and value pair, but nothing else
+    localStorage.setItem("9", area1.val()) // gives the 9AM slot a key and value pair, but nothing for the 5 o clock slot
     localStorage.setItem("10", area2.val())
     localStorage.setItem("11", area3.val())
     localStorage.setItem("12", area4.val())
@@ -67,7 +67,7 @@ function displayInfo(){
     var refreshArea6 = localStorage.getItem("2")
     var refreshArea7 = localStorage.getItem("3")
     var refreshArea8 = localStorage.getItem("4")
-    // var refreshArea9 = localStorage.getItem("5")
+    var refreshArea9 = localStorage.getItem("5")
     area1.text(refreshArea1)
     area2.text(refreshArea2)
     area3.text(refreshArea3)
@@ -76,22 +76,18 @@ function displayInfo(){
     area6.text(refreshArea6)
     area7.text(refreshArea7)
     area8.text(refreshArea8)
-    // area9.text(refreshArea9)
+    area9.text(refreshArea9)
 }
 
-
-
+// creating the function that takes in an element and a color and changes the row based on the time of day
+function newColor(element, color) {
+    element.style.backgroundColor = color;
+}
 
 
 // creating a for loop to add an event listener to every save button
 for (var i = 0; i < inputText.length; i++) {
     saveButton[i].addEventListener("click", SaveInfo)
-}
-
-
-// creating the function that takes in an element and a color and changes the row based on the time of day
-function newColor(element, color) {
-    element.style.backgroundColor = color;
 }
 
 date.append(getDate());
