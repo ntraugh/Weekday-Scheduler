@@ -16,7 +16,7 @@
 - Added hover effect on the "save" button
 
 ## Visuals
-
+![PNG](./assets/images/Work-Day-Scheduler.png)
 
 ## Resources 
 [Live site](https://ntraugh.github.io/Weekday-Scheduler/)
