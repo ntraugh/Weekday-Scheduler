@@ -1,5 +1,6 @@
 var date = $("#currentDay")
-var hour = parseInt(moment().format("H"))
+var hour = moment().format("dddd, MMMM Do YYYY") // learned how to correctly use moment(), removed the entire function that was below
+var hour1 = parseInt(moment().format("H")) // needed to add this line and re declare a new variable for comparisons below
 var tableRow = $(".row")
 var saveButton = $(".saveBtn")
 var inputText = $(".content")
@@ -13,32 +14,17 @@ var area7 = $("#7")
 var area8 = $("#8")
 var area9 = $("#last")
 
-
-
-// function to get the date, passing in the days and months for our values
-function getDate() {
-    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    var months = ["Jan", "Feb", "Mar", "April", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    var today = new Date();
-    var d = today.getDay(days);
-    var m = today.getMonth(months);
-    var daym = today.getDate();
-    var currentDate = date.textContent = days[d] + " " + months[m] + " " + daym;
-
-    return currentDate;
-}
-
 // function to change the color of the row based on the hour of the day
 Array.from(tableRow).forEach(row => {
     var rowString = row.id, rowHour;
     if (rowString) {
         rowHour = parseInt(rowString); // turning our row id into an integer
     }
-    if (hour === rowHour) {
+    if (hour1 === rowHour) {
         newColor(row, "#880000")
-        } else if (hour < rowHour) {
+        } else if (hour1 < rowHour) {
             newColor(row, "#008800");
-        } else if (hour > rowHour) {
+        } else if (hour1 > rowHour) {
             newColor(row, "#555555");
         }
     }
@@ -90,7 +76,7 @@ for (var i = 0; i < inputText.length; i++) {
     saveButton[i].addEventListener("click", SaveInfo)
 }
 
-date.append(getDate());
+date.text(hour);
 displayInfo();
 
 
